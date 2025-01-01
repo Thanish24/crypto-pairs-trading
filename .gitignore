@@ -6,3 +6,4 @@ pyvenv.cfg
 src/credentials.py
 src/__pycache__/
 lib64
+share/

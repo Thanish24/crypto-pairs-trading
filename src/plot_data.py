@@ -14,6 +14,7 @@ def plot_data(coinId):
     x.plot()
 
     plt.title('price of ' + coinId + ' over last 365 days (btc)')
+    plt.legend()
 
     plt.show()
 
