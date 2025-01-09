@@ -19,5 +19,5 @@ def plot_data(coinId):
     plt.show()
 
 if __name__ == '__main__':
-    plot_data('ethereum')
+    plot_data('cardano')
 
