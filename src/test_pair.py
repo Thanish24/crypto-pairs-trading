@@ -1,6 +1,7 @@
 from test_cointegration import test
-from get_historical_data import get_data, get_data_last_week
+from get_historical_data import get_data
 from test_returns import test_returns
+from calculate_spread import get_spread_from_series
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -29,6 +30,10 @@ def test_pair(name1, name2, graph):
     
     print("null rejected?: " + str(res[0]))
 
+    test_returns(data1, data2, True)
+
+    beta = get_spread_from_series(s1, s2, True)
+
     if res[0]:
 
         with open("src/cointegrated_pairs.csv", mode='a', newline='', encoding='utf-8') as csv_file:
@@ -36,11 +41,9 @@ def test_pair(name1, name2, graph):
             writer = csv.writer(csv_file)
 
             # Write each row from the JSON data
-            writer.writerow([name1, name2, res[1], res[2]])
-
-    test_returns(data1, data2, True)
+            writer.writerow([name1, name2, res[1], res[2], beta])
 
     return res[0]
 
 if __name__ == "__main__":
-    test_pair('aave', 'venus', True)
+    test_pair('solana', 'stellar', True)

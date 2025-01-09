@@ -6,7 +6,7 @@ def get_data(coinId):
 
     headers = {"accept": "application/json"}
 
-    params = {"interval": "daily", "vs_currency": "btc", "days": "100"}
+    params = {"interval": "daily", "vs_currency": "btc", "days": "30"}
 
     response = requests.get(url, headers=headers, params=params)
 
